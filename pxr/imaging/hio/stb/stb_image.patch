@@ -1,5 +1,5 @@
---- stb/stb_image.h	2021-09-16 11:52:38.284782000 -0700k
-+++ stb_image.h	2021-09-16 13:45:48.159770000 -0700
+--- stb/stb_image.h	2023-01-29 12:11:05.356129367 -0500
++++ stb_image.h	2023-01-29 12:36:36.306624420 -0500
 @@ -488,14 +488,14 @@
  STBIDEF void     stbi_image_free      (void *retval_from_stbi_load);
  
@@ -28,7 +28,7 @@
  static int      stbi__png_is16(stbi__context *s);
  #endif
  
-@@ -4554,6 +4554,7 @@
+@@ -4547,6 +4547,7 @@
     stbi__context *s;
     stbi_uc *idata, *expanded, *out;
     int depth;
@@ -36,7 +36,7 @@
  } stbi__png;
  
  
-@@ -4955,7 +4956,7 @@
+@@ -4948,7 +4949,7 @@
  static STBI_THREAD_LOCAL int stbi__unpremultiply_on_load_local, stbi__unpremultiply_on_load_set;
  static STBI_THREAD_LOCAL int stbi__de_iphone_flag_local, stbi__de_iphone_flag_set;
  
@@ -45,7 +45,7 @@
  {
     stbi__unpremultiply_on_load_local = flag_true_if_should_unpremultiply;
     stbi__unpremultiply_on_load_set = 1;
-@@ -5112,6 +5113,13 @@
+@@ -5105,6 +5106,13 @@
              break;
           }
  
@@ -59,7 +59,7 @@
           case STBI__PNG_TYPE('I','D','A','T'): {
              if (first) return stbi__err("first not IHDR", "Corrupt PNG");
              if (pal_img_n && !pal_len) return stbi__err("no PLTE","Corrupt PNG");
-@@ -5243,7 +5251,7 @@
+@@ -5236,7 +5244,7 @@
     return r;
  }
  
@@ -68,7 +68,7 @@
  {
     if (!stbi__parse_png_file(p, STBI__SCAN_header, 0)) {
        stbi__rewind( p->s );
-@@ -5252,21 +5260,22 @@
+@@ -5245,21 +5253,22 @@
     if (x) *x = p->s->img_x;
     if (y) *y = p->s->img_y;
     if (comp) *comp = p->s->img_n;
@@ -94,7 +94,7 @@
  	   return 0;
     if (p.depth != 16) {
        stbi__rewind(p.s);
-@@ -7538,14 +7547,14 @@
+@@ -7531,14 +7540,14 @@
  }
  #endif
  
@@ -111,7 +111,7 @@
     #endif
  
     #ifndef STBI_NO_GIF
-@@ -7597,23 +7606,23 @@
+@@ -7590,23 +7599,23 @@
  }
  
  #ifndef STBI_NO_STDIO
@@ -139,7 +139,7 @@
     fseek(f,pos,SEEK_SET);
     return r;
  }
-@@ -7640,18 +7649,18 @@
+@@ -7633,18 +7642,18 @@
  }
  #endif // !STBI_NO_STDIO
  
